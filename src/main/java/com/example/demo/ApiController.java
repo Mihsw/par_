@@ -1,10 +1,8 @@
 package com.example.demo;
 
 import java.io.IOException;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ApiController {
@@ -15,9 +13,9 @@ public class ApiController {
     }
 
     @GetMapping("/getData")
-    public String getRequests(@RequestParam int id, @RequestParam String api_key, String userInput3, String userInput4, String userInput5) {
+    public String getRequests(@RequestParam int id, @RequestParam String apiKey, String workSpaceSlug, String userInput4, String userInput5) {
         try {
-            return apiClient.getData(id, api_key,  userInput3, userInput4, userInput5);
+            return apiClient.getData(id, apiKey,  workSpaceSlug, userInput4, userInput5);
         } catch (IOException e) {
             e.printStackTrace();
             return "Error occurred: " + e.getMessage();
@@ -25,9 +23,29 @@ public class ApiController {
     }
 
     @PostMapping("/postData")
-    public String postRequests(@RequestParam int id, @RequestParam String api_key) {
+    public String postRequests(@RequestParam int id, @RequestParam String apiKey, String workSpaceSlug, String userInput4, String userInput5) {
         try {
-            return apiClient.postData(id, api_key);
+            return apiClient.postData(id, apiKey,  workSpaceSlug, userInput4, userInput5);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "Error occurred: " + e.getMessage();
+        }
+    }
+
+    @PatchMapping("/patchData")
+    public String patchRequests(@RequestParam int id, @RequestParam String apiKey, String workSpaceSlug, String userInput4, String userInput5) {
+        try {
+            return apiClient.patchData(id, apiKey, workSpaceSlug, userInput4, userInput5);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "Error occurred: " + e.getMessage();
+        }
+    }
+
+    @DeleteMapping("/deleteData")
+    public String deleteRequests(@RequestParam int id, @RequestParam String apiKey, String workSpaceSlug, String userInput4, String userInput5) {
+        try {
+            return apiClient.deleteData(id, apiKey, workSpaceSlug, userInput4, userInput5);
         } catch (IOException e) {
             e.printStackTrace();
             return "Error occurred: " + e.getMessage();

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<title>HTML Tutorial</title>
+<body>
+
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+
+<script>
+    const url = 'https://api.plane.so/api/v1/workspaces/aibron/projects/1171a90a-bc86-40b8-8e89-d795f209ebe7/labels/';
+    const options = {method: 'GET', headers: {'x-api-key': 'plane_api_1dba8d2ee188470b83d5a5fdd926df6e'}, body: undefined};
+
+    (async () => {
+        try {
+            const response = await fetch(url, options);
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error(error);
+        }
+    })();
+</script>
+</body>
+</html> 
