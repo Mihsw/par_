@@ -22,12 +22,12 @@ public class DemoApplication implements CommandLineRunner {
         int userInput2 = 0;
         String userInput4 = "";
         String userInput5 = "";
-        String apiKey = "plane_api_1dba8d2ee188470b83d5a5fdd926df6e";
-        String workplaceSlug = "aibron";
-        // System.out.println("Insert your API key");
-        // String api = sc.nextLine();
-        // System.out.println("Insert workplace slug");
-        // String workplaceSlug = sc.nextLine();
+        //String apiKey = "";
+        //String workplaceSlug = "";
+        System.out.println("Insert your API key");
+        String api = sc.nextLine();
+        System.out.println("Insert workplace slug");
+        String workplaceSlug = sc.nextLine();
         String responseGet;
         System.out.println("p -> Project, s -> State, la -> Label, li -> Link, i -> Issue, ia -> I. activity, ic -> I. comment, it -> I. types, ip -> I. properties, ipo -> I. property options, ipv -> I. p. values, iatt -> I. attachments, m -> Module, mi -> Module issue, c -> Cycle, ci -> C. issue, ii -> Intake issue, w -> Worklogs, mem -> Members");
         userInput1 = sc.nextLine();
